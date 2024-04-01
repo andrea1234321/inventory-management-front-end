@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
+import { Routes, Route, Link } from 'react-router-dom'
 
 import Warehouses from './pages/Warehouses/warehouses'
+import NavBar from './components/NavBar/NavBar'
 
 import * as warehouseService from './services/warehouseService'
 
@@ -19,12 +21,12 @@ function App() {
   }, [])
 
   return (
-    // <Route 
-    //   path='/warehouses'
-    //   element={<Warehouses/>}/>
-    <div>
-      <Warehouses warehouses={warehouses}/>
-    </div>
+    <>
+      <NavBar/>
+      <Routes>
+        <Route path="/warehouses" element={<Warehouses warehouses={warehouses}/>}/>
+      </Routes>
+    </>
   )
 }
 

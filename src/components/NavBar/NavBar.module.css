@@ -1,0 +1,19 @@
+nav {
+  background-color: #489d9b;
+  position: fixed;
+  width: 100%;
+}
+ul {
+  display: flex;
+  list-style: none;
+  justify-content:flex-start;
+  padding: 16px 16px 16px 0px;
+}
+li > a,
+li > a:visited {
+  text-decoration: none;
+  color: #ffffff;
+}
+li {
+  margin-left: 10px;
+}
