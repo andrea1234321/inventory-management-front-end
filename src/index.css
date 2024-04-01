@@ -1,10 +1,15 @@
-a {
-  font-weight: 500;
-  color: #ffffff;
-  text-decoration: inherit;
+html,
+body,
+.root {
+  min-height: 100%;
+  /* margin-top: 100px; */
 }
-a:hover {
+a, a:visited{
   color: #000000;
+  text-decoration: none;
+}
+main{
+  margin-top: 100px;
 }
 
 body {

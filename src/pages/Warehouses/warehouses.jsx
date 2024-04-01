@@ -1,14 +1,23 @@
+import WarehouseCard from "../../components/WarehouseCard/WarehouseCard"
+import styles from './Warehouses.module.css'
+
 const Warehouses = (props) => {
-  return(
-    <>
-      <div>{props.warehouses.map((warehouse) => (
-        <li key={warehouse.id}>
-          <p>{warehouse.city}</p>
-          <p>{warehouse.state}</p>
-          <p>{warehouse.capacity}</p>
-        </li>
-      ))}</div>
-    </>
+  if (props.warehouses.length === 0)
+    return (
+      <main>
+        <h2>
+          You have no warehouses
+        </h2>
+      </main>
+    )
+    return(
+      <main>
+        <div className={styles.warehouseContainer}>
+          {props.warehouses.map((warehouse) => (
+            <WarehouseCard key={warehouse.id} warehouse={warehouse} />
+          ))}
+        </div>
+      </main>
   )
 }
 

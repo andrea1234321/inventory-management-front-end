@@ -25,6 +25,7 @@ function App() {
       <NavBar/>
       <Routes>
         <Route path="/warehouses" element={<Warehouses warehouses={warehouses}/>}/>
+        <Route path="warehouses/warehouse/:warehouseId" />
       </Routes>
     </>
   )
