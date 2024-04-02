@@ -19,7 +19,7 @@ const WarehouseDetails = ({handleDeleteWarehouse}) => {
     <main>
       <h1>{warehouse.city}, {warehouse.state}</h1>
       <p>Capacity: {warehouse.capacity}</p>
-      <Link to={`/warehouses/warehouse/${warehouse.id}/edit`} state={warehouse}>Edit</Link>
+      <Link to={`/warehouses/${warehouse.id}/edit`} state={warehouse}>Edit</Link>
       <Link to={`/warehouses`} onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
       <div> 
         {/* apparel info */}

@@ -11,7 +11,7 @@ async function index() {
 
 async function show(warehouseId){
   try{
-    const res = await fetch(`${BASE_URL}/warehouse/${warehouseId}`)
+    const res = await fetch(`${BASE_URL}/${warehouseId}`)
     return res.json()
   }catch(error){
     console.log(error)
@@ -20,7 +20,7 @@ async function show(warehouseId){
 
 async function create(warehouseFormData) {
   try {
-    const res = await fetch(`${BASE_URL}/warehouse`, {
+    const res = await fetch(`${BASE_URL}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ async function create(warehouseFormData) {
 
 async function update(warhouseFormData) {
   try {
-    const res = await fetch(`${BASE_URL}/warehouse/${warhouseFormData.id}`, {
+    const res = await fetch(`${BASE_URL}/${warhouseFormData.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ async function update(warhouseFormData) {
 
 async function deleteWarehouse(warehouseId){
   try {
-    const res = await fetch(`${BASE_URL}/warehouse/${warehouseId}`, {
+    const res = await fetch(`${BASE_URL}/${warehouseId}`, {
       method: 'DELETE',
     })
   } catch (error) {
