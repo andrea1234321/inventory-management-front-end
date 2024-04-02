@@ -9,6 +9,8 @@ const Warehouses = (props) => {
       <main>
         <h2>
           You have no warehouses
+          <Link to="/warehouses/warehouse" className={styles.linkTag}>Create new warehouse
+          </Link>
         </h2>
       </main>
     )

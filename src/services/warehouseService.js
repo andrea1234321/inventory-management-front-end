@@ -48,5 +48,15 @@ async function update(warhouseFormData) {
   }
 }
 
+async function deleteWarehouse(warehouseId){
+  try {
+    const res = await fetch(`${BASE_URL}/warehouse/${warehouseId}`, {
+      method: 'DELETE',
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
 
-export {index, show, create, update}
+
+export {index, show, create, update, deleteWarehouse}

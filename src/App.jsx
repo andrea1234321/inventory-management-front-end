@@ -34,18 +34,24 @@ function App() {
 
   const handleUpdateWarehouse = async (warehouseFormData) => {
     const updatedWarehouse = await warehouseService.update(warehouseFormData)
-    const updatedWarehouses = warehouses.map((b) => (warehouseFormData.id === b.id ? updatedWarehouse : b))
+    const updatedWarehouses = warehouses.map((warehouse) => (warehouseFormData.id === warehouse.id ? updatedWarehouse : warehouse))
     setWarehouses(updatedWarehouses)
     navigate(`/warehouses/warehouse/${warehouseFormData.id}`)
   }
 
+  const handleDeleteWarehouse = async (warehouseId) => {
+    await warehouseService.deleteWarehouse(warehouseId)
+    const updatedWarehouses= warehouses.filter((warehouse) => warehouse.id !== parseInt(warehouseId))
+    setWarehouses(updatedWarehouses)
+    navigate('/warehouses')
+  }
 
   return (
     <>
       <NavBar/>
       <Routes>
         <Route path="/warehouses" element={<Warehouses warehouses={warehouses}/>}/>
-        <Route path="warehouses/warehouse/:warehouseId" element={<WarehouseDetails/>} />
+        <Route path="warehouses/warehouse/:warehouseId" element={<WarehouseDetails handleDeleteWarehouse={handleDeleteWarehouse}/> } />
         <Route path="warehouses/warehouse" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
         <Route path="warehouses/warehouse/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
       </Routes>

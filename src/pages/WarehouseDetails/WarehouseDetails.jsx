@@ -3,7 +3,7 @@ import { useParams, Link } from "react-router-dom";
 
 import * as warehouseService from '../../services/warehouseService'
 
-const WarehouseDetails = () => {
+const WarehouseDetails = ({handleDeleteWarehouse}) => {
   const {warehouseId} = useParams()
   const [warehouse, setWarehouse] = useState({})
 
@@ -20,7 +20,8 @@ const WarehouseDetails = () => {
       <h1>{warehouse.city}, {warehouse.state}</h1>
       <p>Capacity: {warehouse.capacity}</p>
       <Link to={`/warehouses/warehouse/${warehouse.id}/edit`} state={warehouse}>Edit</Link>
-      <div>
+      <Link to={`/warehouses`} onClick={() => handleDeleteWarehouse(warehouseId)}>Delete</Link>
+      <div> 
         {/* apparel info */}
       </div>
     </main>
