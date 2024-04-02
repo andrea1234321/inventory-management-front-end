@@ -9,14 +9,14 @@ const Warehouses = (props) => {
       <main>
         <h2>
           You have no warehouses
-          <Link to="/warehouses/new" className={styles.linkTag}>Create new warehouse
-          </Link>
         </h2>
+        <Link to="/warehouses/new" className="linkTag">Create new warehouse
+        </Link>
       </main>
     )
     return(
       <main>
-          <Link to="/warehouses/new" className={styles.linkTag}>+
+          <Link to="/warehouses/new" className="linkTag">+
           </Link>
         <div className={styles.warehouseContainer}>
           {props.warehouses.map((warehouse) => (
