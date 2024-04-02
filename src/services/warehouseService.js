@@ -33,4 +33,20 @@ async function create(warehouseFormData) {
   }
 }
 
-export {index, show, create}
+async function update(warhouseFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/warehouse/${warhouseFormData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(warhouseFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+
+export {index, show, create, update}

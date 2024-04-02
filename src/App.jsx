@@ -5,6 +5,7 @@ import NavBar from './components/NavBar/NavBar'
 import Warehouses from './pages/Warehouses/Warehouses.jsx'
 import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails'
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx'
+import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx'
 
 import * as warehouseService from './services/warehouseService'
 
@@ -31,6 +32,14 @@ function App() {
     navigate('/warehouses')
   }
 
+  const handleUpdateWarehouse = async (warehouseFormData) => {
+    const updatedWarehouse = await warehouseService.update(warehouseFormData)
+    const updatedWarehouses = warehouses.map((b) => (warehouseFormData.id === b.id ? updatedWarehouse : b))
+    setWarehouses(updatedWarehouses)
+    navigate(`/warehouses/warehouse/${warehouseFormData.id}`)
+  }
+
+
   return (
     <>
       <NavBar/>
@@ -38,6 +47,7 @@ function App() {
         <Route path="/warehouses" element={<Warehouses warehouses={warehouses}/>}/>
         <Route path="warehouses/warehouse/:warehouseId" element={<WarehouseDetails/>} />
         <Route path="warehouses/warehouse" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
+        <Route path="warehouses/warehouse/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
       </Routes>
     </>
   )

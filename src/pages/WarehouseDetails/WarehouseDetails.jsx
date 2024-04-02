@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 import * as warehouseService from '../../services/warehouseService'
 
@@ -19,6 +19,7 @@ const WarehouseDetails = () => {
     <main>
       <h1>{warehouse.city}, {warehouse.state}</h1>
       <p>Capacity: {warehouse.capacity}</p>
+      <Link to={`/warehouses/warehouse/${warehouse.id}/edit`} state={warehouse}>Edit</Link>
       <div>
         {/* apparel info */}
       </div>
