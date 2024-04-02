@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard"
 import styles from './Warehouses.module.css'
 
@@ -12,6 +14,8 @@ const Warehouses = (props) => {
     )
     return(
       <main>
+          <Link to="/warehouses/warehouse" className={styles.linkTag}>+
+          </Link>
         <div className={styles.warehouseContainer}>
           {props.warehouses.map((warehouse) => (
             <WarehouseCard key={warehouse.id} warehouse={warehouse} />

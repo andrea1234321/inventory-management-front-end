@@ -4,12 +4,12 @@ import styles from './WarehouseCard.module.css';
 
 const WarehouseCard = (props) => {
   return (
-    <div className={styles.warehouseContainer}>
-      <Link to={`/warehouses/warehouse/${props.warehouse.id}`}>
-        <p>{props.warehouse.city}, {props.warehouse.state}</p>
-        <p>Capacity: {props.warehouse.capacity}</p>
-      </Link>
-    </div>
+    <Link to={`/warehouses/warehouse/${props.warehouse.id}`} className={styles.warehouseContainer}>
+      <p>{props.warehouse.id}</p>
+      <p>{props.warehouse.city}, {props.warehouse.state}</p>
+      <p>Capacity: {props.warehouse.capacity}</p>
+    </Link>
+
   );
 }
  
