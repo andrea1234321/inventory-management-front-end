@@ -8,6 +8,7 @@ import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx'
 import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx'
 import Inventory from './pages/Inventory/Inventory.jsx'
 import NewInventory from './pages/NewInventory/NewInventory.jsx'
+import EditInventory from './pages/EditInventory/EditInventory.jsx'
 
 import * as warehouseService from './services/warehouseService'
 import * as inventoryService from './services/inventoryService.js'
@@ -75,6 +76,17 @@ function App() {
     navigate('/inventory')
   }
 
+  const handleUpdateInventory = async (itemFormData) => {
+    let warehouseId = parseInt(itemFormData.warehouse)
+    const itemWarehouse = warehouses.filter(warehouse => warehouse.id === warehouseId)
+    itemFormData.warehouse = itemWarehouse.reduce((prev, currVal) => Object.assign(prev, currVal), {})
+    const updatedItem = await inventoryService.update(itemFormData)
+    updatedItem.warehouse= updatedItem.warehouse.id
+    const updatedInventory = inventory.map((item) => (updatedItem.id === item.id ? updatedItem : item))
+    setInventory(updatedInventory)
+    navigate(`/inventory`)
+  }
+
   return (
     <>
       <NavBar/>
@@ -85,6 +97,7 @@ function App() {
         <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
         <Route path="/inventory" element={<Inventory inventory={inventory}/>}/>
         <Route path="/inventory/new" element={<NewInventory handleAddItem={handleAddItem} warehouses={warehouses}/>}/>
+        <Route path="/inventory/:inventoryId/edit" element={<EditInventory handleUpdateInventory={handleUpdateInventory} warehouses={warehouses}/>}/>
       </Routes>
     </>
   )

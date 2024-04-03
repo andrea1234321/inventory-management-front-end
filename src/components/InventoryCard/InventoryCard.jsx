@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const InventoryCard = (props) => {
   return ( 
     <>
@@ -8,7 +10,7 @@ const InventoryCard = (props) => {
         <td>{props.item.size}</td>
         <td>{props.item.location}</td>
         <td>{props.item.warehouse}</td>
-        <td>Edit</td>
+        <td><Link to={`/inventory/${props.item.id}/edit`} state={props.item} warehouse={props.item}>Edit</Link></td>
         <td>Delete</td>
       </tr>
     </>

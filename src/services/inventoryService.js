@@ -24,4 +24,19 @@ async function create(itemFormData) {
   }
 }
 
-export {index, create}
+async function update(itemFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}/${itemFormData.id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(itemFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export {index, create, update}
