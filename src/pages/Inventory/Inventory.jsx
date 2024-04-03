@@ -11,14 +11,14 @@ const Inventory = (props) => {
         <h2>
           There is no inventory
         </h2>
-        <Link to="/warehouses/new" className={styles.linkTag}>Create new warehouse
+        <Link to="/inventory/new" className={styles.linkTag}>Create new item
         </Link>
       </main>
     )
   return ( 
     <>
       <main className={styles.inventoryMain}>
-        <Link className="linkTag">+</Link>
+        <Link to="/inventory/new" className="linkTag">+</Link>
         <table className={styles.inventoryTable}>
           <thead>
             <tr>

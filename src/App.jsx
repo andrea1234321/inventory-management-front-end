@@ -7,6 +7,7 @@ import WarehouseDetails from './pages/WarehouseDetails/WarehouseDetails'
 import NewWarehouse from './pages/NewWarehouse/NewWarehouse.jsx'
 import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx'
 import Inventory from './pages/Inventory/Inventory.jsx'
+import NewInventory from './pages/NewInventory/NewInventory.jsx'
 
 import * as warehouseService from './services/warehouseService'
 import * as inventoryService from './services/inventoryService.js'
@@ -22,7 +23,6 @@ function App() {
   useEffect(() => {
     const fetchAllWarehouses = async () => {
       const data = await warehouseService.index()
-      console.log('Warehouse Data from useeffect:', data)
       setWarehouses(data)
     }
     fetchAllWarehouses()
@@ -32,7 +32,12 @@ function App() {
   useEffect(() => {
     const fetchAllInventories = async () => {
       const data = await inventoryService.index()
-      console.log('Inventory Data from useeffect:', data)
+      data.map(item => {
+          if (item.warehouse !== null){
+          return item.warehouse = item.warehouse.id
+        }
+        return item
+      })
       setInventory(data)
     }
     fetchAllInventories()
@@ -40,7 +45,6 @@ function App() {
 
   const handleAddWarehouse = async (warhouseFormData) => {
     const newWarehouse = await warehouseService.create(warhouseFormData)
-    console.log('New warehouse: ' + newWarehouse.id + newWarehouse.city)
     const newWarehouses = [newWarehouse, ...warehouses]
     setWarehouses(newWarehouses)
     navigate('/warehouses')
@@ -60,6 +64,17 @@ function App() {
     navigate('/warehouses')
   }
 
+  const handleAddItem = async (itemFormData) => {
+    let warehouseId = parseInt(itemFormData.warehouse)
+    const itemWarehouse = warehouses.filter(warehouse => warehouse.id === warehouseId)
+    itemFormData.warehouse = itemWarehouse.reduce((prev, currVal) => Object.assign(prev, currVal), {})
+    const newItem = await inventoryService.create(itemFormData)
+    newItem.warehouse= newItem.warehouse.id
+    const newInventory = [newItem, ...inventory]
+    setInventory(newInventory)
+    navigate('/inventory')
+  }
+
   return (
     <>
       <NavBar/>
@@ -69,6 +84,7 @@ function App() {
         <Route path="/warehouses/new" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
         <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
         <Route path="/inventory" element={<Inventory inventory={inventory}/>}/>
+        <Route path="/inventory/new" element={<NewInventory handleAddItem={handleAddItem} warehouses={warehouses}/>}/>
       </Routes>
     </>
   )

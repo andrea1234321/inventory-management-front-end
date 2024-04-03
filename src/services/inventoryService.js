@@ -9,4 +9,19 @@ async function index() {
   }
 }
 
-export {index}
+async function create(itemFormData) {
+  try {
+    const res = await fetch(`${BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(itemFormData),
+    })
+    return res.json()
+  } catch (error) {
+    console.log("error")
+  }
+}
+
+export {index, create}
