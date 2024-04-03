@@ -11,7 +11,7 @@ const InventoryCard = (props) => {
         <td>{props.item.location}</td>
         <td>{props.item.warehouse}</td>
         <td><Link to={`/inventory/${props.item.id}/edit`} state={props.item} warehouse={props.item}>Edit</Link></td>
-        <td>Delete</td>
+        <td><Link to={`/inventory`} onClick={() => props.handleDeleteItem(props.item.id)}>Delete</Link></td>
       </tr>
     </>
    );

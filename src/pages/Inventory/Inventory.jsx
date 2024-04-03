@@ -34,7 +34,7 @@ const Inventory = (props) => {
           </thead>
           <tbody>
             {props.inventory.map(item => (
-              <InventoryCard key={item.id} item={item}/>
+              <InventoryCard key={item.id} item={item} handleDeleteItem={props.handleDeleteItem}/>
             ))}
           </tbody>
         </table>

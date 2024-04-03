@@ -39,4 +39,14 @@ async function update(itemFormData) {
   }
 }
 
-export {index, create, update}
+async function deleteItem(itemId){
+  try {
+    const res = await fetch(`${BASE_URL}/${itemId}`, {
+      method: 'DELETE',
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export {index, create, update, deleteItem}

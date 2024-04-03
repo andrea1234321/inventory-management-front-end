@@ -87,6 +87,13 @@ function App() {
     navigate(`/inventory`)
   }
 
+  const handleDeleteItem = async (itemId) => {
+    await inventoryService.deleteItem(itemId)
+    const updatedInventory= inventory.filter((item) => item.id !== parseInt(itemId))
+    setInventory(updatedInventory)
+    // navigate('/inventory')
+  }
+
   return (
     <>
       <NavBar/>
@@ -95,7 +102,7 @@ function App() {
         <Route path="/warehouses/:warehouseId" element={<WarehouseDetails handleDeleteWarehouse={handleDeleteWarehouse}/> } />
         <Route path="/warehouses/new" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
         <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
-        <Route path="/inventory" element={<Inventory inventory={inventory}/>}/>
+        <Route path="/inventory" element={<Inventory inventory={inventory} handleDeleteItem={handleDeleteItem}/>}/>
         <Route path="/inventory/new" element={<NewInventory handleAddItem={handleAddItem} warehouses={warehouses}/>}/>
         <Route path="/inventory/:inventoryId/edit" element={<EditInventory handleUpdateInventory={handleUpdateInventory} warehouses={warehouses}/>}/>
       </Routes>
