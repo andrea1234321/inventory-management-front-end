@@ -97,6 +97,12 @@ th,td{
 fieldset{
   border-color: var(--font-second-color);
 }
+.fa-sort-up, .fa-sort-down{
+  color: var(--button-color);
+  margin-left: 20px;
+  /* background-color: red; */
+  vertical-align: middle;
+}
 legend{
   text-align: end;
 }

@@ -4,7 +4,7 @@ import * as inventoryService from "../../services/inventoryService"
 
 import styles from "./InventoryDetails.module.css"
 
-import Sweatshirt from "../../assets/images/sweatshirt.png"
+// import Sweatshirt from "../../assets/images/sweatshirt.png"
 
 const InventoryDetails = () => {
   const {inventoryId} = useParams()
@@ -36,9 +36,9 @@ const InventoryDetails = () => {
         <div className={styles.inventoryContainer}>
           <h1>Item: {item.id}</h1>
           <h2><span>SKU:</span> {item.sku}</h2>
-          <p>In warehouse {item.warehouse} at section {item.location}</p>
           <p><span>Category: </span>{item.category}</p>
           <p><span>Size: </span>{item.size}</p>
+          <p>Warehouse {item.warehouse}: section {item.location}</p>
         </div>
       </main>
     </>

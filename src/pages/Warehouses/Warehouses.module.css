@@ -1,20 +1,14 @@
-.main{
+.selectContainer{
+  width: 90%;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
+  padding-top: 20px;
 }
-.warehouseContainer{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
+.select{
+  font-size: 18px;
+  padding: 15px 40px;
 }
-.linkTag{
-  border-radius: 8px;
-  border: 1px solid black;
-  padding: 10px 15px;
-  cursor: pointer;
-  transition: background-color 0.25s;
-}
-.linkTag:hover {
-  background-color: rgb(215, 215, 215);
+.table{
+  margin-top: 10px;
 }
