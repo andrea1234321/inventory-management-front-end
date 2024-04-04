@@ -37,7 +37,7 @@ const WarehouseCard = ({warehouse, inventory}) => {
             <tr>
               <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.id}</Link></td>
               <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.city}</Link></td>
-              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.state}</Link></td>
+              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.state.toUpperCase()}</Link></td>
               <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.capacity}</Link></td>
             </tr>
               {/* </Link> */}

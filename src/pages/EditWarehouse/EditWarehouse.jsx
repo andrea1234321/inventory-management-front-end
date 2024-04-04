@@ -19,52 +19,54 @@ const EditWarehouse = (props) => {
   }
 
   return ( 
-    <main>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h1>Edit Warehouse</h1>
-          <fieldset>
-            <legend>City</legend>
-            <input
-              required
-              type="text"
-              name="city"
-              value={formData.city}
-              onChange={handleChange}
-              // className={styles.input}
-              autoComplete="off"
-            />
-          </fieldset>
-          <fieldset>
-            <legend>State</legend>
-            <input
-              required
-              type="text"
-              name="state"
-              value={formData.state}
-              onChange={handleChange}
-              maxLength={2}
-              // className={styles.input}
-              autoComplete="off"
-              placeholder="Two-letter State"
-            />
-          </fieldset>
-          <fieldset>
-            <legend>Capacity</legend>
-            <input
-              required
-              type="number"
-              name="capacity"
-              value={formData.capacity}
-              onChange={handleChange}
-              // className={styles.input}
-              autoComplete="off"
-            />
-          </fieldset>
-          <button type="submit">SUBMIT</button>
-        </form>
-      </div>
-    </main>
+    <>
+      <main>
+        <h1>Edit Warehouse</h1>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <fieldset>
+              <legend>City</legend>
+              <input
+                required
+                type="text"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                // className={styles.input}
+                autoComplete="off"
+              />
+            </fieldset>
+            <fieldset>
+              <legend>State</legend>
+              <input
+                required
+                type="text"
+                name="state"
+                value={formData.state}
+                onChange={handleChange}
+                maxLength={2}
+                // className={styles.input}
+                autoComplete="off"
+                placeholder="Two-letter State"
+              />
+            </fieldset>
+            <fieldset>
+              <legend>Capacity</legend>
+              <input
+                required
+                type="number"
+                name="capacity"
+                value={formData.capacity}
+                onChange={handleChange}
+                // className={styles.input}
+                autoComplete="off"
+              />
+            </fieldset>
+            <button type="submit" className='formButton'>SUBMIT</button>
+          </form>
+        </div>
+      </main>
+    </>
   );
 }
  

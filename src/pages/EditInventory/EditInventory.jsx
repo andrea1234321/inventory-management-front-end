@@ -21,9 +21,9 @@ const EditItem = (props) => {
   return ( 
     <>
       <main >
+        <h1>Edit item: {formData.id}</h1>
         <div>
           <form onSubmit={handleSubmit} >
-            <h1>Edit item: {formData.id}</h1>
             <fieldset>
               <legend>SKU</legend>
               <input
@@ -46,7 +46,7 @@ const EditItem = (props) => {
               </select>
             </fieldset>
             <fieldset>
-              <legend>size</legend>
+              <legend>Size</legend>
               <select name="size" value={formData.size} onChange={handleChange} >
                 <option value={state.size}>{state.size}</option>
                 <option value="S">S</option>
@@ -55,7 +55,7 @@ const EditItem = (props) => {
               </select>
             </fieldset>
               <fieldset>
-                <legend>location</legend>
+                <legend>Location</legend>
                 <input
                   required
                   type="text"
@@ -66,7 +66,7 @@ const EditItem = (props) => {
                 />
               </fieldset>
               <fieldset>
-                <legend>warehouse Id</legend>
+                <legend>Warehouse Id</legend>
                 <select name="warehouse" onChange={handleChange}>
                 <option value={state.warehouse}>{state.warehouse}</option>
                   {props.warehouses.map(warehouse => (
@@ -74,7 +74,7 @@ const EditItem = (props) => {
                   ))}
                 </select>
               </fieldset>
-            <button type="submit">Update</button>
+            <button type="submit" className="formButton">Update</button>
           </form>
         </div>
       </main>

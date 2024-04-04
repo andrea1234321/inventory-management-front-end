@@ -13,7 +13,7 @@ body,
   --table-head-color: rgb(37, 41, 68);
   --input-color: rgb(66, 71, 105);
   --table-row-color: rgba(66, 71, 105, 0.653);
-  --font-second-color: rgb(126, 135, 190);
+  --font-second-color: rgb(139, 149, 211);
   --font-primary-color: rgb(255, 255, 255);
 }
 
@@ -23,6 +23,11 @@ a, a:visited{
 }
 main{
   margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: red; */
+  text-align: center;
 }
 
 body {
@@ -88,4 +93,35 @@ th,td{
 }
 .fa-regular, .fa-solid{
   color: var(--background-color);
+}
+fieldset{
+  border-color: var(--font-second-color);
+}
+legend{
+  text-align: end;
+}
+input{
+  border: 1px solid var(--background-color);
+  background-color: var(--input-color);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: var(--font-primary-color);
+  width: 180px;
+  font-size: 18px;
+  margin: 5px 0;
+}
+.formButton{
+  margin-top: 30px;
+  font-size: 17px;
+}
+::placeholder {
+  color: var(--font-second-color);
+}
+select{
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 8px;
+  background-color: var(--input-color);
+  border: 2px solid var(--table-head-color);
+  color: var(--font-primary-color);
 }
