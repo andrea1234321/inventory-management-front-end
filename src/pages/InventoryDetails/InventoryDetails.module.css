@@ -1,0 +1,8 @@
+.inventoryContainer{
+  text-align: center;
+}
+
+span{
+  color: var(--font-second-color);
+  font-weight: bold;
+}

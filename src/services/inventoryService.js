@@ -24,6 +24,15 @@ async function create(itemFormData) {
   }
 }
 
+async function show(inventoryId){
+  try{
+    const res = await fetch(`${BASE_URL}/${inventoryId}`)
+    return res.json()
+  }catch(error){
+    console.log(error)
+  }
+}
+
 async function update(itemFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${itemFormData.id}`, {
@@ -49,4 +58,4 @@ async function deleteItem(itemId){
   }
 }
 
-export {index, create, update, deleteItem}
+export {index, show, create, update, deleteItem}

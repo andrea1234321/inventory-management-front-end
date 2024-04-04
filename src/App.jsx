@@ -9,6 +9,7 @@ import EditWarehouse from './pages/EditWarehouse/EditWarehouse.jsx'
 import Inventory from './pages/Inventory/Inventory.jsx'
 import NewInventory from './pages/NewInventory/NewInventory.jsx'
 import EditInventory from './pages/EditInventory/EditInventory.jsx'
+import InventoryDetails from './pages/InventoryDetails/InventoryDetails.jsx'
 
 import * as warehouseService from './services/warehouseService'
 import * as inventoryService from './services/inventoryService.js'
@@ -103,6 +104,7 @@ function App() {
         <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>
         <Route path="/inventory" element={<Inventory inventory={inventory} handleDeleteItem={handleDeleteItem}/>}/>
         <Route path="/inventory/new" element={<NewInventory handleAddItem={handleAddItem} warehouses={warehouses}/>}/>
+        <Route path="/inventory/:inventoryId" element={<InventoryDetails/>}/>
         <Route path="/inventory/:inventoryId/edit" element={<EditInventory handleUpdateInventory={handleUpdateInventory} warehouses={warehouses}/>}/>
       </Routes>
     </>
