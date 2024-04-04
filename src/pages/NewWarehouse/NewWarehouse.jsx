@@ -15,7 +15,6 @@ const NewWarehouse = (props) => {
   }
   
   const handleSubmit = (evt) => {
-    console.log(formData)
     evt.preventDefault()
     props.handleAddWarehouse(formData)
   }

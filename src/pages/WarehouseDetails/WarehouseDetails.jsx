@@ -12,7 +12,7 @@ import * as warehouseService from '../../services/warehouseService'
 const WarehouseDetails = ({handleDeleteWarehouse, inventory, handleDeleteItem}) => {
   const {warehouseId} = useParams()
   const [warehouse, setWarehouse] = useState({})
-  // const [currCapacity, setCurrCapacity] = useState(0)
+  const [currCapacity, setCurrCapacity] = useState(0)
 
   useEffect(()=> {
     const fetchWarehouse = async () => {
@@ -22,12 +22,24 @@ const WarehouseDetails = ({handleDeleteWarehouse, inventory, handleDeleteItem}) 
     fetchWarehouse()
   }, [warehouseId])
   
+  useEffect(() => {
+    let newCapacity = 0;
+    inventory.forEach((item) => {
+      if(item.warehouse === parseInt(warehouseId)) {
+        newCapacity += 1;
+      }
+    });
+    setCurrCapacity(newCapacity);
+  }, [inventory, warehouseId]);
+  
+
+
   return ( 
     <>
       <main className={styles.main}>
         <h1 className={styles.h1}>Warehouse: {warehouse.id}</h1>
         <h2 className={styles.h2}>{warehouse.city}, {warehouse.state}</h2>
-        <p>Capacity: {warehouse.capacity}</p>
+        <p>Capacity: {currCapacity}/{warehouse.capacity}</p>
         <div className={styles.buttonContainer}>
           <Link to={`/warehouses/${warehouse.id}/edit`} state={warehouse} className={styles.linkTag}>Edit</Link>
           <Link to={`/warehouses`} onClick={() => handleDeleteWarehouse(warehouseId)} className={styles.linkTag}>Delete</Link>

@@ -3,48 +3,29 @@ import { Link } from 'react-router-dom';
 import styles from './WarehouseCard.module.css';
 import { useEffect, useState } from 'react';
 
-const WarehouseCard = ({warehouse, inventory}) => {
-  // const [currCapacity, setCurrCapacity] = useState(0)
+const WarehouseCard = ({warehouse, inventory, handleAddCurrWarehouseItem}) => {
+  const [currCapacity, setCurrCapacity] = useState(0)
 
-  // useEffect(() => {
-  //   const setCurrentCapacity = () => {
-  //     inventory.map((item) => {
-  //       console.log("ITEM: ", item)
-  //       if(item.warehouse === parseInt(warehouse.id)){
-  //         setCurrCapacity(currCapacity +1)
-  //         console.log("CURR CAPACITY: ", currCapacity, warehouse.id)
-  //       }
-  //     })
-  //   }
-  //   setCurrentCapacity()
-  // }, [inventory])
+  useEffect(() => {
+    let newCapacity = 0;
+    inventory.forEach((item) => {
+      if(item.warehouse === parseInt(warehouse.id)) {
+        newCapacity += 1;
+      }
+    });
+    setCurrCapacity(newCapacity);
+  }, [inventory, warehouse.id]);
+  
 
 
   return (
     <>
-        {/* <table>
-          <thead>
-            <tr>
-              <th>Warehouse ID:</th>
-              <th>City</th>
-              <th>State</th>
-              <th>Capacity</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody> */}
-            {/* <Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}> */}
-            <tr>
-              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.id}</Link></td>
-              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.city}</Link></td>
-              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.state.toUpperCase()}</Link></td>
-              <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.capacity}</Link></td>
-            </tr>
-              {/* </Link> */}
-          {/* </tbody>
-        </table> */}
-        {/* <p>{warehouse.city}, {warehouse.state}</p>
-        <p>Capacity: {warehouse.capacity}</p> */}
+      <tr>
+        <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer} onClick={handleAddCurrWarehouseItem}>{warehouse.id}</Link></td>
+        <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.city}</Link></td>
+        <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{warehouse.state.toUpperCase()}</Link></td>
+        <td><Link to={`/warehouses/${warehouse.id}`} className={styles.warehouseContainer}>{currCapacity} / {warehouse.capacity}</Link></td>
+      </tr>
     </>
   );
 }

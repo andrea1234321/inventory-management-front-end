@@ -9,25 +9,25 @@ const Inventory = (props) => {
     return (
       <main>
         <h2>
-          There is no inventory
+          There are currently no items
         </h2>
-        <Link to="/inventory/new" className={styles.linkTag}>Create new item
+        <Link to="/inventory/new" className="linkTag">Create new item
         </Link>
       </main>
     )
   return ( 
     <>
       <main className={styles.inventoryMain}>
-        <Link to="/inventory/new" className="linkTag">New Item</Link>
+        <Link to="/inventory/new" className="linkTag">Add Item</Link>
         <table>
           <thead>
             <tr>
-              <th>Id</th>
+              <th>Item ID</th>
               <th>SKU</th>
               <th>Category</th>
               <th>Size</th>
               <th>Location</th>
-              <th>Warehouse</th>
+              <th>Warehouse ID</th>
             </tr>
           </thead>
           <tbody>

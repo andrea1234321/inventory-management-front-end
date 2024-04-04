@@ -19,6 +19,8 @@ import './App.css'
 function App() {
   const [warehouses, setWarehouses] = useState([])
   const [inventory, setInventory] = useState([])
+  const [currWarehouseItems, setCurrWarehouseItems] = useState(0);
+  console.log("WAREHOUSE ITEMS", currWarehouseItems)
   const navigate = useNavigate()
 
   //get all warehouses
@@ -43,7 +45,7 @@ function App() {
       setInventory(data)
     }
     fetchAllInventories()
-  }, [])
+  }, [warehouses])
 
   const handleAddWarehouse = async (warhouseFormData) => {
     const newWarehouse = await warehouseService.create(warhouseFormData)
@@ -94,11 +96,19 @@ function App() {
     setInventory(updatedInventory)
   }
 
+  const handleAddCurrWarehouseItem = (warehouseId) => {
+    inventory.map((item) => {
+      if(parseInt(item.warehouse) === parseInt(warehouseId)){
+        setCurrWarehouseItems( currWarehouseItems +1 )
+      }
+    })
+  }
+
   return (
     <>
       <NavBar/>
       <Routes>
-        <Route path="/warehouses" element={<Warehouses warehouses={warehouses} inventory={inventory}/>}/>
+        <Route path="/warehouses" element={<Warehouses warehouses={warehouses} inventory={inventory} handleAddCurrWarehouseItem={handleAddCurrWarehouseItem}/>}/>
         <Route path="/warehouses/:warehouseId" element={<WarehouseDetails handleDeleteWarehouse={handleDeleteWarehouse} handleDeleteItem={handleDeleteItem} inventory={inventory}/> } />
         <Route path="/warehouses/new" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
         <Route path="/warehouses/:warehouseId/edit" element={<EditWarehouse handleUpdateWarehouse={handleUpdateWarehouse}/>}/>

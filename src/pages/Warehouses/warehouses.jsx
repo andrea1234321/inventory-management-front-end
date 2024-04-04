@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 import WarehouseCard from "../../components/WarehouseCard/WarehouseCard"
 import styles from './Warehouses.module.css'
 
-const Warehouses = ({warehouses, inventory}) => {
+const Warehouses = ({warehouses, inventory, handleAddCurrWarehouseItem}) => {
 
 
   if (warehouses.length === 0)
@@ -18,7 +18,7 @@ const Warehouses = ({warehouses, inventory}) => {
     )
     return(
       <main className={styles.main}>
-          <Link to="/warehouses/new" className="linkTag">Create New Warehouse</Link>
+          <Link to="/warehouses/new" className="linkTag">Add Warehouse</Link>
           <table>
           <thead>
             <tr>
@@ -31,7 +31,7 @@ const Warehouses = ({warehouses, inventory}) => {
           <tbody>
             <>
               {warehouses.map((warehouse) => (
-                  <WarehouseCard key={warehouse.id} warehouse={warehouse} inventory={inventory}/>
+                  <WarehouseCard key={warehouse.id} warehouse={warehouse} inventory={inventory} handleAddCurrWarehouseItem={handleAddCurrWarehouseItem}/>
               ))}
             </>   
           </tbody>

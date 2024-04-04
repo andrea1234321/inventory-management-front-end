@@ -14,7 +14,6 @@ const InventoryDetails = () => {
   useEffect(()=> {
     const fetchItem = async () => {
       const data = await inventoryService.show(inventoryId)
-      console.log(data)
       if(data.warehouse !== null){
         data.warehouse = data.warehouse.id
       }
