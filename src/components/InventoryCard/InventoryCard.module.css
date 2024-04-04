@@ -1,0 +1,12 @@
+.linkTag {
+  background-color: var(--background-color);
+  padding: 10px;
+  border-radius: 8px;
+  transition: box-shadow 0.25s;
+}
+.linkTag:hover{
+  box-shadow: 1px 1px 15px var(--font-second-color);
+}
+.linkTag:active{
+  box-shadow: none;
+}

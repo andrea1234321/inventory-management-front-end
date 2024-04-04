@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 
 const EditItem = (props) => {
   const {state} = useLocation()
-  const [formData, setFormData] = useState(state);
-  console.log(formData)
-
+  const [formData, setFormData] = useState(state)
   
   const handleChange = (evt) => {
     const {name, value} = evt.target
@@ -25,7 +23,7 @@ const EditItem = (props) => {
       <main >
         <div>
           <form onSubmit={handleSubmit} >
-            <h1>New item</h1>
+            <h1>Edit item: {formData.id}</h1>
             <fieldset>
               <legend>SKU</legend>
               <input

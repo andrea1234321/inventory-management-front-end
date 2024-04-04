@@ -1,5 +1,6 @@
 nav {
-  background-color: #489d9b;
+  background-color: var(--background-color);
+  border-bottom: 2px solid var(--font-second-color);
   position: fixed;
   width: 100%;
   top: 0;
@@ -8,13 +9,18 @@ ul {
   display: flex;
   list-style: none;
   justify-content:flex-start;
-  padding: 16px 16px 16px 0px;
+  padding: 10px 20px;
 }
 li > a,
 li > a:visited {
   text-decoration: none;
   color: #ffffff;
+  padding: 0 10px;
+  transition: color 0.25s;
 }
 li {
   margin-left: 10px;
+}
+li> a:hover{
+  color: var(--button-color);
 }

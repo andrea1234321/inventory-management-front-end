@@ -70,6 +70,7 @@ const NewInventory = (props) => {
             <fieldset>
               <legend>warehouse Id</legend>
               <select name="warehouse" onChange={handleChange}>
+                <option value={formData.id}>--</option>
                 {props.warehouses.map(warehouse => (
                   <option key={warehouse.id} value={formData.id} onChange={handleChange}>{warehouse.id}</option>
                 ))}
