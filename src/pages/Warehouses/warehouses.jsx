@@ -39,6 +39,7 @@ const Warehouses = ({warehouses, inventory, handleAddCurrWarehouseItem}) => {
         <div className="selectContainer">
           <Link to="/warehouses/new" className="linkTag">Add Warehouse</Link>
           <select name="sort" id="sort" onChange={handleSort} className={styles.select}>
+            <option value="sortBy">Sort By:</option>
             <option value="warehouseId">Warehouse ID</option>
             <option value="city" >City</option>
             <option value="state">State</option>

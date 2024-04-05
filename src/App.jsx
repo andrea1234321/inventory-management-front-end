@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, Link, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate } from 'react-router-dom'
 
 import NavBar from './components/NavBar/NavBar'
 import Warehouses from './pages/Warehouses/Warehouses.jsx'
@@ -14,8 +14,6 @@ import Landing from './pages/Landing/Landing.jsx'
 
 import * as warehouseService from './services/warehouseService'
 import * as inventoryService from './services/inventoryService.js'
-
-import './App.css'
 
 function App() {
   const [warehouses, setWarehouses] = useState([])
