@@ -1,18 +1,11 @@
-.main{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .h1, .h2{
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .buttonContainer{
   margin: 10px;
 }
-table{
-  align-items: center;
-}
+
 .linkTag{
   border-radius: 8px;
   border: 1px solid var(--input-color);
@@ -31,4 +24,7 @@ table{
 }
 .linkTag:active{
   box-shadow: none;
+}
+.table{
+  margin-top: 10px;
 }
