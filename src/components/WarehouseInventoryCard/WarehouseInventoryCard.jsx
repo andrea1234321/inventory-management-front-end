@@ -4,7 +4,7 @@ import styles from "./WarehouseInventoryCard.module.css"
 const WarehouseInventoryCard = (props) => {
   return ( 
     <tr>
-      <td>{props.item.id}</td>
+      <td><Link to={`/inventory/${props.item.id}`} className="linkWord">{props.item.id}</Link></td>
       <td>{props.item.sku}</td>
       <td>{props.item.category}</td>
       <td>{props.item.size}</td>

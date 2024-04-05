@@ -29,6 +29,7 @@ const Inventory = ({inventory, handleDeleteItem}) => {
   }
 
 
+
   if (inventory.length === 0)
     return (
       <main>

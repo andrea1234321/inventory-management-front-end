@@ -4,12 +4,10 @@ import * as inventoryService from "../../services/inventoryService"
 
 import styles from "./InventoryDetails.module.css"
 
-// import Sweatshirt from "../../assets/images/sweatshirt.png"
 
 const InventoryDetails = () => {
   const {inventoryId} = useParams()
   const [item, setItem] = useState([])
-  // const images= [Sweatshirt]
 
   useEffect(()=> {
     const fetchItem = async () => {
@@ -25,14 +23,6 @@ const InventoryDetails = () => {
   return ( 
     <>
       <main>
-        {/* <div>
-          {images.map(image=> {
-            console.log('IMAGE: ', images)
-            if(image === item.category){
-              return <img src={item.category} alt="image" />
-            }
-          })}
-        </div> */}
         <div className={styles.inventoryContainer}>
           <h1>Item: {item.id}</h1>
           <h2><span>SKU:</span> {item.sku}</h2>

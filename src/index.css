@@ -174,3 +174,6 @@ select{
 .active{
   color: var(--button-color) !important;
 }
+.linkWord:hover{
+  color: var(--button-color);
+}

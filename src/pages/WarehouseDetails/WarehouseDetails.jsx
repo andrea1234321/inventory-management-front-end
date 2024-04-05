@@ -76,7 +76,7 @@ const WarehouseDetails = ({handleDeleteWarehouse, inventory, handleDeleteItem}) 
           <table className={styles.table}>
               <thead>
                 <tr>
-                  <th>Id</th>
+                  <th>Item ID</th>
                   <th>SKU</th>
                   <th>Category</th>
                   <th>Size</th>

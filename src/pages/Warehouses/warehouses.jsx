@@ -14,7 +14,6 @@ const Warehouses = ({warehouses, inventory, handleAddCurrWarehouseItem}) => {
   const handleSort = (evt) => {
     const {value} = evt.target
     if(value === "warehouseId"){
-      console.log('yes')
       setSortedWarehouses([...sortedWarehouses].sort((a, b) => a.id - b.id));
     }if (value === "city"){
       setSortedWarehouses([...sortedWarehouses].sort((a, b) => a.city.localeCompare(b.city)));
