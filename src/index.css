@@ -150,3 +150,27 @@ select{
   font-size: 20px;
   padding: 10px 20px;
 }
+.title{
+  font-family: "Bungee Shade", sans-serif;
+  color: var(--button-color);
+}
+.navAppTitle{
+  font-family: "Bungee Shade", sans-serif;
+  color: var(--button-color);
+  font-size: 30px;
+}
+.fa-moon{
+  color: var(--font-second-color);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--background-color);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--font-second-color);
+  border-radius: 10px;
+}
+.active{
+  color: var(--button-color) !important;
+}

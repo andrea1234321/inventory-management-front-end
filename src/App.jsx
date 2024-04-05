@@ -10,6 +10,7 @@ import Inventory from './pages/Inventory/Inventory.jsx'
 import NewInventory from './pages/NewInventory/NewInventory.jsx'
 import EditInventory from './pages/EditInventory/EditInventory.jsx'
 import InventoryDetails from './pages/InventoryDetails/InventoryDetails.jsx'
+import Landing from './pages/Landing/Landing.jsx'
 
 import * as warehouseService from './services/warehouseService'
 import * as inventoryService from './services/inventoryService.js'
@@ -20,7 +21,6 @@ function App() {
   const [warehouses, setWarehouses] = useState([])
   const [inventory, setInventory] = useState([])
   const [currWarehouseItems, setCurrWarehouseItems] = useState(0);
-  console.log("WAREHOUSE ITEMS", currWarehouseItems)
   const navigate = useNavigate()
 
   //get all warehouses
@@ -76,7 +76,7 @@ function App() {
     newItem.warehouse= newItem.warehouse.id
     const newInventory = [newItem, ...inventory]
     setInventory(newInventory)
-    navigate('/inventory')
+    navigate((-1))
   }
 
   const handleUpdateInventory = async (itemFormData) => {
@@ -87,7 +87,7 @@ function App() {
     updatedItem.warehouse= updatedItem.warehouse.id
     const updatedInventory = inventory.map((item) => (updatedItem.id === item.id ? updatedItem : item))
     setInventory(updatedInventory)
-    navigate(`/inventory`)
+    navigate((-1))
   }
 
   const handleDeleteItem = async (itemId) => {
@@ -108,6 +108,7 @@ function App() {
     <>
       <NavBar/>
       <Routes>
+        <Route path="/" element={<Landing />}/>
         <Route path="/warehouses" element={<Warehouses warehouses={warehouses} inventory={inventory} handleAddCurrWarehouseItem={handleAddCurrWarehouseItem}/>}/>
         <Route path="/warehouses/:warehouseId" element={<WarehouseDetails handleDeleteWarehouse={handleDeleteWarehouse} handleDeleteItem={handleDeleteItem} inventory={inventory}/> } />
         <Route path="/warehouses/new" element={<NewWarehouse handleAddWarehouse={handleAddWarehouse}/>}/>
