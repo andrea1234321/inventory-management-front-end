@@ -46,6 +46,7 @@ const Inventory = ({inventory, handleDeleteItem}) => {
         <div className="selectContainer">
           <Link to="/inventory/new" className="linkTag">Add Item</Link>
           <select name="sort" id="sort" onChange={handleSort} className={styles.select}>
+            <option value="sortBy">Sort By:</option>
             <option value="itemId">Item ID</option>
             <option value="sku" >SKU</option>
             <option value="category">Category</option>
